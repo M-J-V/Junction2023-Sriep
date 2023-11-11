@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import {IonText} from "@ionic/vue";
+import ResponseContainer from "@/components/ResponseContainer.vue";
 
-function store_response(value) {
-  {
+const props = defineProps({
+  done: Boolean
+})
 
-  }
-}
 </script>
 
 <template>
@@ -16,7 +16,7 @@ function store_response(value) {
     <div id="bottom_half">
 
     </div>
-    <div id="top_cover">
+    <div id="top_cover" v-if="!props.done">
       <ion-text>
         Make your room dark
       </ion-text>
@@ -36,10 +36,12 @@ function store_response(value) {
         <img src="/icons/eyes.png" alt="eyes">
       </div>
     </div>
+    <response-container v-else/>
   </div>
 </template>
 
 <style scoped>
+
 
 @keyframes setOpacity {
   0% {
@@ -58,6 +60,7 @@ function store_response(value) {
     top: 0;
   }
 }
+
 @keyframes slideInFromBottom {
   0% {
     bottom: -50%;
@@ -71,9 +74,10 @@ function store_response(value) {
   position: absolute;
   height: 100%;
   width: 100%;
-  top:0;
-  left:0;
+  top: 0;
+  left: 0;
 }
+
 #top_half {
   height: 50%;
   width: 100%;
@@ -81,6 +85,7 @@ function store_response(value) {
   animation: 3s ease-in-out 0s 1 slideInFromTop;
   position: relative;
 }
+
 #bottom_half {
   height: 50%;
   width: 100%;

@@ -14,7 +14,7 @@
       <div id="container">
         <ion-button @click="relieve_user" shape="round">Relief</ion-button>
       </div>
-      <screen-cover v-if="relieving"/>
+      <screen-cover v-if="relieving" :done="done"/>
     </ion-content>
   </ion-page>
 </template>
@@ -26,10 +26,12 @@ import {ref} from "vue";
 import ScreenCover from "@/components/ScreenCover.vue";
 
 const relieving = ref(false);
-
+const done = ref(false);
 function relieve_user() {
   relieving.value = true;
-  get_relief()
+  get_relief().then(
+      () => done.value = true
+  )
 }
 </script>
 

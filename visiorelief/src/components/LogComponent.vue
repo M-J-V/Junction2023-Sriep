@@ -65,7 +65,7 @@ library.add(faSmile)
 library.add(faMeh)
 library.add(faFrown)
 
-function getRandomInt(max) {
+function getRandomInt(max: number) {
   return Math.floor(Math.random() * max);
 }
 

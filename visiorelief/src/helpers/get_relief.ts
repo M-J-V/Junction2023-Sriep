@@ -1,6 +1,6 @@
 import scenes from "@/helpers/scenes";
 import sounds from "@/helpers/sounds";
-import { arrayBuffer } from "stream/consumers";
+import {arrayBuffer} from "stream/consumers";
 
 const ctx = new AudioContext();
 
@@ -45,29 +45,25 @@ export default async () => {
             'Content-Type': 'application/json' // Specify the content type as JSON
         },
         body: JSON.stringify({scene: scene, sounds: chosen_sounds, length: 100}) // Convert the dataObject to a JSON string
-    }).then(response => {
-        if (!response.ok) {
-            throw new Error("Network Error");
-        }
-        return response.blob();
     })
-    .then(blob => {
-        const audioURL = URL.createObjectURL(blob);
-        let talker = new Audio(audioURL);
+
+    if (!response.ok) {
+        throw new Error("Network Error");
+    }
+    let blob = await response.blob();
+    const audioURL = URL.createObjectURL(blob);
+    let talker = new Audio(audioURL);
+    return new Promise((resolve, reject) => {
         talker.addEventListener('ended', function () {
             //2 minutes
             setTimeout(() => {
                 sound1_handle.removeEventListener("ended", loop_sound);
-                sound2_handle.removeEventListener("ended", loop_sound)
-            }, 5000 )
+                sound2_handle.removeEventListener("ended", loop_sound);
+                sound1_handle.addEventListener("ended", resolve);
+            }, 5000)
         }, false);
         talker.play();
-    })
-    .catch(error => {
-        console.error('Error fetching text-to-speech:', error);
     });
-
-    
     // const playSound = ctx.createBufferSource();
     // playSound.buffer = audio;
     // playSound.connect(ctx.destination)
