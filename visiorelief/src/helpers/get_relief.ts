@@ -1,5 +1,8 @@
 import scenes from "@/helpers/scenes";
 import sounds from "@/helpers/sounds";
+import { arrayBuffer } from "stream/consumers";
+
+const ctx = new AudioContext();
 
 function play_sound_until_callback(sound: string, callback) {
     console.log("playing: ", sound);
@@ -9,6 +12,10 @@ function play_sound_until_callback(sound: string, callback) {
         this.play();
     }, false);
     audio.play();
+}
+
+function playback() {
+    
 }
 
 export default async () => {
@@ -38,19 +45,30 @@ export default async () => {
             'Content-Type': 'application/json' // Specify the content type as JSON
         },
         body: JSON.stringify({scene: scene, sounds: chosen_sounds, length: 100}) // Convert the dataObject to a JSON string
+    }).then(response => {
+        if (!response.ok) {
+            throw new Error("Network Error");
+        }
+        return response.blob();
     })
-    let text = "";
-    // Handle the response
-    if (response.ok) {
-        text = await response.json(); // Parse the JSON response if needed
-    } else {
-        throw new Error('Network response was not ok.');
-    }
-    let utterance = new SpeechSynthesisUtterance("");
-    utterance.text = text;
-    utterance.rate *= 0.60;
-    console.log(utterance.rate);
-    window.speechSynthesis.speak(utterance);
+    .then(blob => {
+        // Assuming you want to create an <audio> element to play the received audio
+        const audioElement = document.createElement('audio');
+        const audioURL = URL.createObjectURL(blob);
+        audioElement.src = audioURL;
+        audioElement.controls = true;
+        document.body.appendChild(audioElement);
+    })
+    .catch(error => {
+        console.error('Error fetching text-to-speech:', error);
+    });
+
+    
+    // const playSound = ctx.createBufferSource();
+    // playSound.buffer = audio;
+    // playSound.connect(ctx.destination)
+    // playSound.start(ctx.currentTime)
+
 
     //wait 2 minutes to TTS the text
 
