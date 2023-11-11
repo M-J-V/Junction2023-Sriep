@@ -6,7 +6,7 @@
 <!--      </ion-toolbar>-->
 <!--    </ion-header>-->
     <ion-content :fullscreen="true">
-      <ion-header collapse="condense">
+      <ion-header collapse="condense"  class="ion-no-border">
         <ion-toolbar>
           <ion-title size="large">Relief</ion-title>
         </ion-toolbar>

@@ -1,12 +1,12 @@
 <template>
   <ion-page>
-    <ion-header>
+    <ion-header  class="ion-no-border">
       <ion-toolbar>
         <ion-title>Settings</ion-title>
       </ion-toolbar>
     </ion-header>
     <ion-content :fullscreen="true">
-      <ion-header collapse="condense">
+      <ion-header collapse="condense"  class="ion-no-border">
         <ion-toolbar>
           <ion-title size="large">Settings</ion-title>
         </ion-toolbar>
