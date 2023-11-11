@@ -2,7 +2,7 @@
   <ion-page>
     <ion-header  class="ion-no-border">
       <ion-toolbar>
-        <ion-title>Settings</ion-title>
+        <ion-title style="text-align: center">Settings</ion-title>
       </ion-toolbar>
     </ion-header>
     <ion-content :fullscreen="true">
