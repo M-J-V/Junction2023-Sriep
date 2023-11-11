@@ -18,7 +18,7 @@ function loop_sound(this: HTMLAudioElement) {
     this.play();
 }
 
-export default async () => {
+export default async (): Promise<{sounds: string[], scene: string}> => {
     //Generate random variables
     const scene = scenes[Math.floor(Math.random() * scenes.length)];
     const sound1_index = Math.floor(Math.random() * sounds.length);
@@ -59,7 +59,7 @@ export default async () => {
             setTimeout(() => {
                 sound1_handle.removeEventListener("ended", loop_sound);
                 sound2_handle.removeEventListener("ended", loop_sound);
-                sound1_handle.addEventListener("ended", resolve);
+                sound1_handle.addEventListener("ended", () => resolve({sounds, scene}));
             }, 5000)
         }, false);
         talker.play();

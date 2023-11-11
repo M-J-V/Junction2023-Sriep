@@ -1,10 +1,14 @@
 <script setup lang="ts">
 import {IonText} from "@ionic/vue";
 import ResponseContainer from "@/components/ResponseContainer.vue";
-
 const props = defineProps({
   done: Boolean
 })
+
+const emit = defineEmits(['done'])
+function done(value: number) {
+  emit('done', value);
+}
 
 </script>
 
@@ -36,7 +40,7 @@ const props = defineProps({
         <img src="/icons/eyes.png" alt="eyes">
       </div>
     </div>
-    <response-container v-else/>
+    <response-container @done="done" v-else/>
   </div>
 </template>
 

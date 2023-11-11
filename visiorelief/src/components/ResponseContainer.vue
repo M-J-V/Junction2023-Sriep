@@ -2,13 +2,13 @@
   <div id="container">
     <strong>How is your migraine feeling now?</strong>
     <div>
-      <ion-button fill="clear" color="success">
+      <ion-button @click="done(1)" fill="clear" color="success">
         <font-awesome-icon :icon="['fas', 'smile']" />
       </ion-button>
-      <ion-button @click="play_the_sound" fill="clear" color="warning">
+      <ion-button @click="done(0)" fill="clear" color="warning">
         <font-awesome-icon :icon="['fas', 'meh']" />
       </ion-button>
-      <ion-button fill="clear" color="danger">
+      <ion-button @click="done(-1)" fill="clear" color="danger">
         <font-awesome-icon :icon="['fas', 'frown']" />
       </ion-button>
     </div>
@@ -26,6 +26,10 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 /* import specific icons */
 import { faSmile, faMeh, faFrown } from '@fortawesome/free-solid-svg-icons'
+import scenes from "@/helpers/scenes";
+import sounds from "@/helpers/sounds";
+
+import {Session} from "@/helpers/session";
 
 library.add(faSmile)
 library.add(faMeh)
@@ -39,6 +43,11 @@ function play_the_sound() {
     console.log("jobs done")
   }
   window.speechSynthesis.speak(msg);
+}
+
+const emit = defineEmits(['done'])
+function done(value: number) {
+  emit('done', value);
 }
 </script>
 
