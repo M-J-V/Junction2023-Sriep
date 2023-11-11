@@ -1,0 +1,90 @@
+<template>
+  <div id="container">
+    <div>
+      <ion-card v-for="(day, index) in days.reverse()" class="row">
+        <div class="icon">
+          <font-awesome-icon v-if="day.response == -1" :icon="['fas', 'frown']" style="color: #f6555d" />
+          <font-awesome-icon v-else-if="day.response == 0" :icon="['fas', 'meh']" style="color: #e56f00"/>
+          <font-awesome-icon v-else-if="day.response == 1" :icon="['fas', 'smile']" style="color: #06b443"/>
+        </div>
+        <div>
+          <ion-card-header>
+            <ion-card-title>Session log {{days.length - index}}</ion-card-title>
+            <ion-card-subtitle>Date: {{day.day.toISOString().split('T')[0]}}</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-text>Setting: {{day.setting}}</ion-text><br>
+            <ion-text>Sounds: {{day.sounds}}</ion-text>
+          </ion-card-content>
+        </div>
+      </ion-card>
+    </div>
+  </div>
+</template>
+
+<script setup lang="ts">
+import {IonText} from '@ionic/vue';
+
+/* import the fontawesome core */
+import { library } from '@fortawesome/fontawesome-svg-core'
+
+/* import font awesome icon component */
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+
+/* import specific icons */
+import { faSmile, faMeh, faFrown } from '@fortawesome/free-solid-svg-icons'
+
+library.add(faSmile)
+library.add(faMeh)
+library.add(faFrown)
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
+
+var d = new Date();
+let days = [];
+for (let i = 0; i < 10; i++) {
+  let session = {
+    day: d,
+    setting: "mountains",
+    sounds: "stream, gravel",
+    response: getRandomInt(3)-1,
+  }
+  days.push(session);
+  d.setDate(d.getDate() - 1);
+}
+
+</script>
+
+<style scoped>
+#container {
+  text-align: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+}
+
+.icon {
+  height: 100%;
+  font-size: 10rem;
+  display: flex;
+  justify-content: center;
+  margin: 1rem;
+}
+
+ion-card {
+  display: flex;
+  justify-content: center;
+}
+
+font-awesome-icon {
+  height: 100%;
+}
+</style>

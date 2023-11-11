@@ -5,7 +5,7 @@
       <ion-button fill="clear" color="success">
         <font-awesome-icon :icon="['fas', 'smile']" />
       </ion-button>
-      <ion-button fill="clear" color="warning">
+      <ion-button @click="play_the_sound" fill="clear" color="warning">
         <font-awesome-icon :icon="['fas', 'meh']" />
       </ion-button>
       <ion-button fill="clear" color="danger">
@@ -31,14 +31,13 @@ library.add(faSmile)
 library.add(faMeh)
 library.add(faFrown)
 
-defineProps({
-  name: String,
-});
-
 function play_the_sound() {
   let msg = new SpeechSynthesisUtterance();
   msg.text = "Hello World. This is a short demo to see if this works";
-  console.log("speaking")
+  console.log("speaking");
+  msg.onend = (event) => {
+    console.log("jobs done")
+  }
   window.speechSynthesis.speak(msg);
 }
 </script>
