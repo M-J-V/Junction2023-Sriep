@@ -1,0 +1,7 @@
+{
+  "name": "visiorelief",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue-vite"
+}
