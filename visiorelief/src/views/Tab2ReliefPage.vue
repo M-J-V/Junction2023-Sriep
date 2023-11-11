@@ -12,17 +12,26 @@
         </ion-toolbar>
       </ion-header>
       <div id="container">
-        <ion-button @click="get_relief" shape="round">Relief</ion-button>
+        <ion-button @click="relieve_user" shape="round">Relief</ion-button>
       </div>
+      <screen-cover v-if="relieving"/>
     </ion-content>
   </ion-page>
 </template>
 
 <script setup lang="ts">
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonButton } from '@ionic/vue';
-import { Storage } from '@ionic/storage';
+import { Storage } from  '@ionic/storage';
 import get_relief from '@/helpers/get_relief'
+import {ref} from "vue";
+import ScreenCover from "@/components/ScreenCover.vue";
 
+const relieving = ref(false);
+
+function relieve_user() {
+  relieving.value = true;
+  get_relief()
+}
 </script>
 
 <style scoped>
