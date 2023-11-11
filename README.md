@@ -37,11 +37,20 @@ openai-env\Scripts\activate
 pip install -r requirements.txt
 ```
 
-## Testing backend
+## Testing back-end
+Running the back-end:
 ```bash
 python .\visiorelief-backend\main.py
 ```
-```bash
-curl http://localhost:5000/query -d "data=I want a scene where I walk through a forest?" -X GET
+JSON example:
+```json
+{"scene":"Clouds","sounds:["Zen Garden", "Fire Crackling", "Ocean Waves"]","length:100"}
 ```
-
+CMD example:
+```bash
+curl -X POST -H "Content-Type: application/json" -d '{\"scene\": \"Clouds\", \"sounds\": [\"Zen Garden\", \"Fire Crackling\", \"Ocean Waves\"], \"length\": 100}' http://127.0.0.1:5000/query
+```
+Powershell example:
+```powershell
+Invoke-RestMethod -Uri 'http://127.0.0.1:5000/query' -Method Post -Headers @{"Content-Type"="application/json"} -Body '{"scene": "Clouds", "sounds": ["Zen Garden", "Fire Crackling", "Ocean Waves"], "length": 100}'
+```
