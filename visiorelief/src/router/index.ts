@@ -16,8 +16,12 @@ const routes: Array<RouteRecordRaw> = [
         redirect: '/tabs/tab1'
       },
       {
+        path: 'about',
+        component: () => import('@/views/AboutUsPage.vue')
+      },
+      {
         path: 'tab1',
-        component: () => import('@/views/Tab1Page.vue')
+        component: () => import('@/views/Tab1SettingsPage.vue')
       },
       {
         path: 'relief',
