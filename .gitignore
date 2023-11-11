@@ -1,4 +1,5 @@
-*/openai-env/*
 .env
+openai-env/*
+*/openai-env/*
 */__pycache__/*
 visiorelief-backend/chatgpt_test/__pycache__/*
