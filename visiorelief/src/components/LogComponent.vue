@@ -82,7 +82,7 @@ for (let i = 0; i < 10; i++) {
 
 .icon {
   height: 100%;
-  font-size: 10rem;
+  font-size: 5rem;
   display: flex;
   justify-content: center;
   margin: 1rem;
