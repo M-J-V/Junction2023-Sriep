@@ -41,6 +41,15 @@ function store_response(value) {
 
 <style scoped>
 
+@keyframes setOpacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 @keyframes slideInFromTop {
   0% {
     top: -50%;
@@ -86,11 +95,14 @@ function store_response(value) {
   text-align: center;
   width: 100%;
   color: white;
+  opacity: 0;
   top: 0;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-content: center;
+  animation: 3s ease-in 3s 1 setOpacity;
+  animation-fill-mode: forwards;
 }
 
 .img-container {
