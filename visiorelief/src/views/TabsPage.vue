@@ -22,6 +22,13 @@
   </ion-page>
 </template>
 
+<style scoped>
+ion-tab-bar {
+  border: none;
+  box-shadow: none;
+}
+</style>
+
 <script setup lang="ts">
 import { IonTabBar, IonTabButton, IonTabs, IonLabel, IonIcon, IonPage, IonRouterOutlet } from '@ionic/vue';
 import {cog, ellipse, folder, home, statsChartOutline, triangle} from 'ionicons/icons';

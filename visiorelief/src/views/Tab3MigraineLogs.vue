@@ -1,8 +1,8 @@
 <template>
   <ion-page>
-    <ion-header>
+    <ion-header  class="ion-no-border"> 
       <ion-toolbar>
-        <ion-title style="color: #415D7A;">Migraine history</ion-title>
+        <ion-title style="color: #415D7A; text-align: center" >Migraine history</ion-title>
       </ion-toolbar>
     </ion-header>
     <ion-content :fullscreen="true">
