@@ -1,5 +1,11 @@
 <script setup lang="ts">
+import {IonText} from "@ionic/vue";
 
+function store_response(value) {
+  {
+
+  }
+}
 </script>
 
 <template>
@@ -11,7 +17,24 @@
 
     </div>
     <div id="top_cover">
-      hello world
+      <ion-text>
+        Make your room dark
+      </ion-text>
+      <div class="img-container">
+        <img style="position: relative" src="/icons/merged.svg" alt="curtain">
+      </div>
+      <ion-text>
+        Get yourself in a comfortable position,
+      </ion-text>
+      <div class="img-container">
+        <img src="/icons/bed.svg" alt="bed">
+      </div>
+      <ion-text>
+        Close your eyes, and listen.
+      </ion-text>
+      <div class="img-container">
+        <img src="/icons/eyes.png" alt="eyes">
+      </div>
     </div>
   </div>
 </template>
@@ -60,8 +83,21 @@
 #top_cover {
   position: absolute;
   height: 100%;
+  text-align: center;
   width: 100%;
   color: white;
   top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-content: center;
+}
+
+.img-container {
+  height: 25%;
+}
+
+img {
+  height: 100%;
 }
 </style>
