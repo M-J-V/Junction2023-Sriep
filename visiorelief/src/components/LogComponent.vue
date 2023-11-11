@@ -37,29 +37,29 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 /* import specific icons */
 import { faSmile, faMeh, faFrown } from '@fortawesome/free-solid-svg-icons'
 
-/* import storage */
-import { Storage } from  '@ionic/storage';
+// /* import storage */
+// import { Storage } from  '@ionic/storage';
 
-// Setup the session store
-const session_store = new Storage();
-await session_store.create();
+// // Setup the session store
+// const session_store = new Storage();
+// await session_store.create();
 
-async function store_session(day: Date, session: any) {
-  session_store.set(day.toString(), session);
+// async function store_session(day: Date, session: any) {
+//   session_store.set(day.toString(), session);
   
-  console.log(session_store.keys())
-}
+//   console.log(session_store.keys())
+// }
 
-async function get_session(day: Date) {
-  return session_store.get(day.toString())
-}
+// async function get_session(day: Date) {
+//   return session_store.get(day.toString())
+// }
 
-async function reset_session_store() {
-  session_store.clear()
-}
+// async function reset_session_store() {
+//   session_store.clear()
+// }
 
-// If you want to reset the store after every refresh, comment out if not
-reset_session_store()
+// // If you want to reset the store after every refresh, comment out if not
+// reset_session_store()
 
 library.add(faSmile)
 library.add(faMeh)
@@ -84,8 +84,8 @@ for (let i = 0; i < 10; i++) {
     sounds: [sound1, sound2],
     response: getRandomInt(3)-1,
   }
-  await store_session(d, session)
-  // days.push(session);
+  // await store_session(d, session)
+  days.push(session);
   d.setDate(d.getDate() - 1);
 }
 
