@@ -13,9 +13,9 @@
           <ion-label>Tab 2</ion-label>
         </ion-tab-button>
 
-        <ion-tab-button tab="tab3" href="/tabs/tab3">
-          <ion-icon aria-hidden="true" :icon="square" />
-          <ion-label>Tab 3</ion-label>
+        <ion-tab-button tab="migraine_logs" href="/tabs/migraine_logs">
+          <ion-icon aria-hidden="true" :icon="statsChartOutline" />
+          <ion-label>Logs</ion-label>
         </ion-tab-button>
       </ion-tab-bar>
     </ion-tabs>
@@ -24,5 +24,5 @@
 
 <script setup lang="ts">
 import { IonTabBar, IonTabButton, IonTabs, IonLabel, IonIcon, IonPage, IonRouterOutlet } from '@ionic/vue';
-import { ellipse, square, triangle } from 'ionicons/icons';
+import { ellipse, statsChartOutline, triangle } from 'ionicons/icons';
 </script>
