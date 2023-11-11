@@ -48,9 +48,9 @@ JSON example:
 ```
 CMD example:
 ```bash
-curl -X POST -H "Content-Type: application/json" -d '{\"scene\": \"Clouds\", \"sounds\": [\"Zen Garden\", \"Fire Crackling\", \"Ocean Waves\"], \"length\": 100}' http://127.0.0.1:1337/query
+curl -X POST -H "Content-Type: application/json" -d '{\"scene\": \"Clouds\", \"sounds\": [\"Zen Garden\", \"Fire Crackling\", \"Ocean Waves\"], \"length\": 100}' http://127.0.0.1:1337/query-text
 ```
 Powershell example:
 ```powershell
-Invoke-RestMethod -Uri 'http://127.0.0.1:1337/query' -Method Post -Headers @{"Content-Type"="application/json"} -Body '{"scene": "Clouds", "sounds": ["Zen Garden", "Fire Crackling", "Ocean Waves"], "length": 100}'
+Invoke-RestMethod -Uri 'http://127.0.0.1:1337/query-text' -Method Post -Headers @{"Content-Type"="application/json"} -Body '{"scene": "Clouds", "sounds": ["Zen Garden", "Fire Crackling", "Ocean Waves"], "length": 100}'
 ```
