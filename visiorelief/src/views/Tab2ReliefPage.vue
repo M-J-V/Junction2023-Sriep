@@ -11,7 +11,8 @@
           <ion-title size="large">Relief</ion-title>
         </ion-toolbar>
       </ion-header>
-      <div id="container">
+      <div id="background"></div>
+      <div id="container" class="background-container">
         <ion-button @click="relieve_user" shape="round">Relief</ion-button>
       </div>
       <screen-cover v-if="relieving" :done="done"/>
@@ -41,8 +42,21 @@ function relieve_user() {
   position: absolute;
   left: 0;
   right: 0;
-  top: 75%;
+  top: 80%;
   transform: translateY(-50%);
+}
+
+#background {
+  background-image: url('logo.png');
+  height: 75%;
+  width: 100%;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat; 
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  
 }
 
 ion-button {
