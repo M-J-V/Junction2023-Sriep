@@ -1,7 +1,7 @@
 from flask import request
 from flask_restful import Resource
 
-from QueryChatGPTSingleton import QueryChatGPTSingleton
+from query_chatgpt_singleton import QueryChatGPTSingleton
 
 processed_requests = []
 

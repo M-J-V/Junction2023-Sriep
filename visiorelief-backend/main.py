@@ -1,12 +1,12 @@
-from flask import Flask, request
-from flask_restful import Resource, Api
+from flask import Flask
+from flask_restful import Api
 from flask_cors import CORS
 
 from openai import OpenAI
 from dotenv import load_dotenv
 
-from chatgpt_flask_test import QueryProcessRequest
-from QueryChatGPTSingleton import QueryChatGPTSingleton
+from query_process_request import QueryProcessRequest
+from query_chatgpt_singleton import QueryChatGPTSingleton
 
 # Load environment variables from .env file
 load_dotenv()
