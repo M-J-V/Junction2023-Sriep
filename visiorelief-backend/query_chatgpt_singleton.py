@@ -9,7 +9,9 @@ class QueryChatGPTSingleton():
         self.system = """
             You are helping a user practice their imagination skills. 
             For this you generate a short scene that they can imagine to alleviate migraine symptoms.
-            Always describe the scene in a story telling voice.
+            Describe the scene in present tense and in story telling voice.
+            Keep the scene realistic, do not include fantasy elements.
+            Do not describe how the reader is feeling.
 
             The user will give a theme including sounds playing in that scene.
             The scene should be calm. Be descriptive about the visual parts of the scene.
@@ -38,4 +40,5 @@ class QueryChatGPTSingleton():
 
         # Remove the newline characters from the generated responses.
         generated_response = completion.choices[0].message.content.replace('\n', '').replace('\r', '')
+        print(generated_response)
         return generated_response
