@@ -7,7 +7,7 @@ const ctx = new AudioContext();
 //Loop sound until callback is ran
 function play_sound_until_callback(sound: string) {
     console.log("playing: ", sound);
-    const audio = new Audio('/sounds/' + sound.toLowerCase() + '_norm.mp3');
+    const audio = new Audio('/sounds/' + sound.toLowerCase() + '_norm_loop.mp3');
     audio.volume = 0.1;
     audio.addEventListener('ended', loop_sound, false);
     return audio

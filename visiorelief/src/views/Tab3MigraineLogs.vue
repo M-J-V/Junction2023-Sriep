@@ -2,7 +2,7 @@
   <ion-page>
     <ion-header>
       <ion-toolbar>
-        <ion-title>Migraine history</ion-title>
+        <ion-title style="color: #415D7A;">Migraine history</ion-title>
       </ion-toolbar>
     </ion-header>
     <ion-content :fullscreen="true">

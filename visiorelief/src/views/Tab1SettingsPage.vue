@@ -12,9 +12,9 @@
         </ion-toolbar>
       </ion-header>
       <div id="container">
-          <ion-button routerLink="./about" size="large">About us</ion-button><br>
-          <ion-button size="large">Customize</ion-button><br>
-          <ion-button id="wipe_alert" size="large" color="danger" >Clear Data</ion-button><br>
+          <ion-button routerLink="./about" size="large" shape="round">About us</ion-button><br>
+          <ion-button size="large" shape="round">Customize</ion-button><br>
+          <ion-button id="wipe_alert" size="large" color="danger" shape="round">Clear Data</ion-button><br>
           <ion-alert
               trigger="wipe_alert"
               header="WARNING: This will wipe all your logs"
