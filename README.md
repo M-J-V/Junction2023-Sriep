@@ -39,7 +39,7 @@ pip install -r requirements.txt
 
 ## Testing backend
 ```bash
-python chatgpt_test\main.py
+python .\visiorelief-backend\main.py
 ```
 ```bash
 curl http://localhost:5000/query -d "data=I want a scene where I walk through a forest?" -X PUT
