@@ -4,18 +4,18 @@ import { arrayBuffer } from "stream/consumers";
 
 const ctx = new AudioContext();
 
-function play_sound_until_callback(sound: string, callback) {
+//Loop sound until callback is ran
+function play_sound_until_callback(sound: string) {
     console.log("playing: ", sound);
-    const audio = new Audio('/sounds/' + sound.toLowerCase() + '.mp3');
-    audio.addEventListener('ended', function () {
-        this.currentTime = 0;
-        this.play();
-    }, false);
-    audio.play();
+    const audio = new Audio('/sounds/' + sound.toLowerCase() + '_norm.mp3');
+    audio.volume = 0.1;
+    audio.addEventListener('ended', loop_sound, false);
+    return audio
 }
 
-function playback() {
-    
+function loop_sound(this: HTMLAudioElement) {
+    this.currentTime = 0;
+    this.play();
 }
 
 export default async () => {
@@ -29,10 +29,10 @@ export default async () => {
     const chosen_sounds = [sound1, sound2];
 
     //start playing the sounds as intro
-    play_sound_until_callback(sound1, () => {
-    });
-    setTimeout(() => play_sound_until_callback(sound2, () => {
-    }), 5000);
+    let sound1_handle = play_sound_until_callback(sound1);
+    let sound2_handle = play_sound_until_callback(sound2);
+    sound1_handle.play()
+    setTimeout(() => sound2_handle.play(), 5000);
     console.log(scene)
     console.log(chosen_sounds)
 
@@ -52,12 +52,16 @@ export default async () => {
         return response.blob();
     })
     .then(blob => {
-        // Assuming you want to create an <audio> element to play the received audio
-        const audioElement = document.createElement('audio');
         const audioURL = URL.createObjectURL(blob);
-        audioElement.src = audioURL;
-        audioElement.controls = true;
-        document.body.appendChild(audioElement);
+        let talker = new Audio(audioURL);
+        talker.addEventListener('ended', function () {
+            //2 minutes
+            setTimeout(() => {
+                sound1_handle.removeEventListener("ended", loop_sound);
+                sound2_handle.removeEventListener("ended", loop_sound)
+            }, 5000 )
+        }, false);
+        talker.play();
     })
     .catch(error => {
         console.error('Error fetching text-to-speech:', error);

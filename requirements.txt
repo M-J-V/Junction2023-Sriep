@@ -3,4 +3,4 @@ python-dotenv==1.0.0
 flask==3.0.0
 flask_restful==0.3.10
 flask_cors==4.0.0
-gTTS==2.4.0
+gtts==2.4.0
