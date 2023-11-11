@@ -21,7 +21,6 @@
 
 <script setup lang="ts">
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonButton } from '@ionic/vue';
-import { Storage } from  '@ionic/storage';
 import get_relief from '@/helpers/get_relief'
 import {ref} from "vue";
 import ScreenCover from "@/components/ScreenCover.vue";
