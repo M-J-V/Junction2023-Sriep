@@ -43,6 +43,15 @@ function play_the_sound() {
 </script>
 
 <style scoped>
+@keyframes setOpacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 #container {
   text-align: center;
   position: absolute;
@@ -50,6 +59,9 @@ function play_the_sound() {
   right: 0;
   top: 50%;
   transform: translateY(-50%);
+  opacity: 0;
+  animation: 3s ease-in 3s 1 setOpacity;
+  animation-fill-mode: forwards;
 }
 
 #container strong {
