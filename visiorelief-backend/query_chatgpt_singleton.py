@@ -20,9 +20,10 @@ class QueryChatGPTSingleton():
             Though the scenes should still be enjoyable for adults.
             """
 
-    def query(self, query_input):
+    def query(self, scene, sounds):
         completion = self.client.chat.completions.create(
         model="gpt-3.5-turbo",
+        request_string = "Generate a scene in " + scene + " which includes the sounds " + sounds.join(' and ')
         messages=[
             {"role": "system", "content":self.system},
             {"role": "user", "content": query_input}
