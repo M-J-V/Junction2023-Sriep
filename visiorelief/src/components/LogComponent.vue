@@ -7,14 +7,14 @@
           <font-awesome-icon v-else-if="day.response == 0" :icon="['fas', 'meh']" style="color: #e56f00"/>
           <font-awesome-icon v-else-if="day.response == 1" :icon="['fas', 'smile']" style="color: #06b443"/>
         </div>
-        <div>
+        <div style="flex:1">
           <ion-card-header>
             <ion-card-title>Session log {{days.length - index}}</ion-card-title>
             <ion-card-subtitle>Date: {{day.day.toISOString().split('T')[0]}}</ion-card-subtitle>
           </ion-card-header>
           <ion-card-content>
             <ion-text>Setting: {{day.setting}}</ion-text><br>
-            <ion-text>Sounds: {{day.sounds}}</ion-text>
+            <ion-text>Sounds: {{day.sounds.join(', ')}}</ion-text>
           </ion-card-content>
         </div>
       </ion-card>
@@ -23,6 +23,9 @@
 </template>
 
 <script setup lang="ts">
+import sounds from '@/helpers/sounds.ts';
+import scenes from '@/helpers/scenes.ts';
+
 import {IonText} from '@ionic/vue';
 
 /* import the fontawesome core */
@@ -45,10 +48,16 @@ function getRandomInt(max) {
 var d = new Date();
 let days = [];
 for (let i = 0; i < 10; i++) {
+  const randomElement = scenes[Math.floor(Math.random() * scenes.length)];
+  const sound1_index = Math.floor(Math.random() * sounds.length);
+  const sound2_index = Math.floor(Math.random() * sounds.length - 1);
+  const sound1 = sounds.splice(sound1_index, 1)[0];
+  const sound2 = sounds[sound2_index];
+  sounds.push(sound1);
   let session = {
     day: d,
-    setting: "mountains",
-    sounds: "stream, gravel",
+    setting: randomElement,
+    sounds: [sound1, sound2],
     response: getRandomInt(3)-1,
   }
   days.push(session);

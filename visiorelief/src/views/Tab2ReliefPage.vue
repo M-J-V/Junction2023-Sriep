@@ -12,7 +12,7 @@
         </ion-toolbar>
       </ion-header>
       <div id="container">
-        <ion-button shape="round">Relief</ion-button>
+        <ion-button @click="get_relief" shape="round">Relief</ion-button>
       </div>
     </ion-content>
   </ion-page>
@@ -20,6 +20,8 @@
 
 <script setup lang="ts">
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonButton } from '@ionic/vue';
+import { Storage } from '@ionic/storage';
+import get_relief from '@/helpers/get_relief'
 
 </script>
 
