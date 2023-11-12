@@ -21,7 +21,7 @@ import {IonBackButton, IonContent, IonHeader, IonPage, IonText, IonTitle, IonToo
       <div id="content">
         <div class="logo">
           <!-- Your logo image goes here -->
-          <img src="logo.png" alt="Logo">
+          <img src="/logo.png" alt="Logo">
         </div>
         <div>
           <ion-text>
