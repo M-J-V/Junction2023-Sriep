@@ -20,7 +20,8 @@
               header="WARNING: This will wipe all your logs"
               sub-header="Pressing this option will remove all of your data"
               message="Are you sure you want to delete it?"
-              :buttons="alertButtons"
+                :buttons="alertButtons"
+              @didDismiss="dismiss_me"
           ></ion-alert>
       </div>
     </ion-content>
@@ -30,15 +31,26 @@
 <script setup lang="ts">
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonAlert, IonButton } from '@ionic/vue';
 import LogComponent from '@/components/LogComponent.vue';
+import {Storage} from "@ionic/storage";
+
+function dismiss_me(test) {
+  if (test.detail.role == 'confirm') {
+    const session_store = new Storage();
+    session_store.create();
+    session_store.clear();
+  }
+}
 
 const alertButtons = [
   {
     text: 'Cancel',
     cssClass: 'alert-button-cancel',
+    role: 'cancel'
   },
   {
     text: 'YES - WIPE',
     cssClass: 'alert-button-confirm',
+    role: 'confirm'
   },
 ];
 

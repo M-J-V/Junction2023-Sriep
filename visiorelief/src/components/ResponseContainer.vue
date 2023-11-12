@@ -90,8 +90,7 @@ function done(value: number) {
 }
 
 ion-button {
-  height: 10rem;
-  width: 10rem;
+  height: 25%;
   font-size: 5rem;
   margin: 1rem;
 }
