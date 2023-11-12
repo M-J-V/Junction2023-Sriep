@@ -60,7 +60,7 @@ export default async (): Promise<{sounds: string[], scene: string}> => {
     if (!response.ok) {
         throw new Error("Network Error");
     }
-    //Turn the gathered data from the server to a audio element
+    //Turn the gathered data from the server to an audio element
     let blob = await response.blob();
     const audioURL = URL.createObjectURL(blob);
     let talker = new Audio(audioURL);
@@ -68,7 +68,7 @@ export default async (): Promise<{sounds: string[], scene: string}> => {
     //Return a promise for when the voice is done with playing
     return new Promise((resolve, reject) => {
         //This event listener waits for the speech to be done playing and then resolves the promise.
-        //Idealy this is ran by different functions and not done with one single function
+        //Ideally this is run by different functions and not done with one single function
         talker.addEventListener('ended', function () {
             //5 seconds after the talk is done, remove the looping for the ambient sounds and resolve the promise
             setTimeout(() => {
