@@ -6,6 +6,7 @@ import json
 
 from query_chatgpt_singleton import QueryChatGPTSingleton
 
+# Process the post request with ChatGPT and return the response as an text string
 class QueryProcessRequestText(Resource):
     def post(self):
         data = request.get_json()
@@ -17,6 +18,7 @@ class QueryProcessRequestText(Resource):
         print(sounds)
         print(length)
 
+        # Process the request with ChatGPT
         processed_input = QueryChatGPTSingleton().query(scene, sounds, length)
 
         return processed_input
