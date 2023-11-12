@@ -12,9 +12,11 @@ from query_chatgpt_singleton import QueryChatGPTSingleton
 # Load environment variables from .env file
 load_dotenv()
 
+# Setup the ChatGPT connection
 client = OpenAI()
 QueryChatGPTSingleton().setup(client)
 
+# Setup the API
 app = Flask(__name__)
 CORS(app, resources={r"*": {"origins": "*"}})
 api = Api(app)

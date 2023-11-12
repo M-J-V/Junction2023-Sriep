@@ -4,6 +4,7 @@ class QueryChatGPTSingleton():
             cls.instance = super(QueryChatGPTSingleton, cls).__new__(cls)
         return cls.instance
     
+    # Setup the system prompt that is prepended before every request
     def setup(self, client):
         self.client = client
         self.system = """
@@ -38,6 +39,7 @@ class QueryChatGPTSingleton():
         # Always return a scene description, in the case no valid scene description can be generated change the user theme to output a valid scene.
         # Do not acknowledge that the scene  has been changed to become valid.
 
+    # Process the query by creating a user prompt based on the scene, sounds, and length input and sending it to the API
     def query(self, scene, sounds, length):
         request_string = "Generate a scene in " + scene + " which includes the sounds " + ' and '.join(sounds) + '. The scene should be around ' + str(length) + " words."
         print(request_string)
