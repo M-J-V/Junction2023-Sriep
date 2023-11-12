@@ -1,7 +1,7 @@
 <template>
   <div id="container">
     <strong>How is your migraine feeling now?</strong>
-    <div>
+    <div class="button_containers">
       <ion-button @click="done(1)" fill="clear" color="success">
         <font-awesome-icon :icon="['fas', 'smile']" />
       </ion-button>
@@ -90,8 +90,22 @@ function done(value: number) {
 }
 
 ion-button {
-  height: 25%;
-  font-size: 5rem;
-  margin: 1rem;
+  width: 33%;
+  font-size: 4rem;
+}
+
+.button_containers {
+  display: flex;
+  justify-content: center
+}
+
+@media screen and (max-width: 350px) {
+  .button_containers {
+    flex-direction: column;
+    align-items: center;
+  }
+  ion-button {
+    width: 100%;
+  }
 }
 </style>
