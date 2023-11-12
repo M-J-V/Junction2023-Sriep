@@ -70,7 +70,7 @@ async function submit_response(response: number) {
 }
 
 #background {
-  background-image: url('logo.png');
+  background-image: url('/logo.png');
   height: 75%;
   width: 100%;
   background-size: contain;
