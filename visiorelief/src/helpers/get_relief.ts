@@ -74,6 +74,10 @@ export default async (): Promise<{sounds: string[], scene: string}> => {
             setTimeout(() => {
                 sound1_handle.removeEventListener("ended", loop_sound);
                 sound2_handle.removeEventListener("ended", loop_sound);
+                setTimeout(() => {
+                    sound1_handle.pause()
+                    sound2_handle.pause()
+                }, 15000)
                 resolve({sounds: chosen_sounds, scene});
             }, 5000)
         }, false);
