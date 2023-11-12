@@ -1,3 +1,4 @@
+//list of sounds that we can play. The whale song was too scary
 export default [
     "Ocean Waves",
     "Rainfall",

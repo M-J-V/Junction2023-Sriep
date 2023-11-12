@@ -21,20 +21,21 @@
 </template>
 
 <script setup lang="ts">
-import sounds from '@/helpers/sounds.ts';
-import scenes from '@/helpers/scenes.ts';
-
+//Load used Ionic components
 import {IonText, IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonCardContent} from '@ionic/vue';
 
 /* import the fontawesome core */
 import { library } from '@fortawesome/fontawesome-svg-core'
-
 /* import font awesome icon component */
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-
 /* import specific icons */
 import { faSmile, faMeh, faFrown } from '@fortawesome/free-solid-svg-icons'
+/* Register font-awesome icons */
+library.add(faSmile)
+library.add(faMeh)
+library.add(faFrown)
 
+/* import the session type*/
 import {Session} from '@/helpers/session';
 
 /* import storage */
@@ -42,35 +43,20 @@ import { Storage } from  '@ionic/storage';
 import {ref} from "vue";
 import {Ref} from "@vue/reactivity";
 
-// Setup the session store
+// Set up the session store
 const session_store = new Storage();
 session_store.create();
-// session_store.clear();
 
-async function store_session(day: Date, session: Session) {
-  let sessions = await session_store.get('session')
-  if (sessions == null) {
-    sessions = {};
-  }
-  sessions[day.toISOString()] = session;
-  await session_store.set('session', sessions)
-}
+//Create a session array with ref
+let days: Ref<Session[]> = ref([]);
 
+//define async function to get sessions
 async function get_sessions(): Promise<Array<Session>> {
   return await session_store.get('session')
 }
 
-library.add(faSmile)
-library.add(faMeh)
-library.add(faFrown)
-
-function getRandomInt(max: number) {
-  return Math.floor(Math.random() * max);
-}
-
-let days: Ref<Session[]> = ref([]);
+//Load sessions from the storage
 get_sessions().then((sessions) => {
-  console.log(sessions)
   days.value = sessions
 })
 

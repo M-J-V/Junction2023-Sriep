@@ -11,7 +11,6 @@
           <ion-title size="large">Session history</ion-title>
         </ion-toolbar>
       </ion-header>
-
       <log-component/>
     </ion-content>
   </ion-page>

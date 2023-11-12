@@ -1,3 +1,4 @@
+//possible scenes for the AI to write about
 export default [
     "Mountains",
     "Beach",
