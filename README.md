@@ -23,14 +23,14 @@ VisioRelief remains committed to continual improvement and expansion with:
 
 By addressing the challenges associated with chronic headaches and migraines, VisioRelief not only provides immediate relief based on research but also lays the foundation for ongoing advancements to better cater to the diverse needs of its users. This project illustrates a significant step towards chronic pain management without painkillers.
 
-
 ## Setup Frontend
-To run ionic. You need to do the following.
-change the directory to visiorelief
+To run ionic. You need to do the following steps:
+
+Change the directory to "visiorelief"
 ```bash
 cd .\visiorelief
 ```
-Run npm install.
+Run npm install
 ```bash
 npm install
 ```
@@ -59,15 +59,15 @@ pip install -r requirements.txt
 ```
 
 ## Testing back-end
-Running the back-end:
+Running the back-end
 ```bash
 python .\visiorelief-backend\main.py
 ```
-JSON example:
+JSON example
 ```json
 {"scene": "Clouds", "sounds": ["Zen Garden", "Fire Crackling", "Ocean Waves" ],  "length": 10 }
 ```
-Powershell example:
+Powershell example
 ```powershell
 Invoke-RestMethod -Uri 'http://127.0.0.1:1337/query-text' -Method Post -Headers @{"Content-Type"="application/json"} -Body '{"scene": "Clouds", "sounds": ["Zen Garden", "Fire Crackling", "Ocean Waves"], "length": 100}'
 ```
