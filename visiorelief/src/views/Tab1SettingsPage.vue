@@ -13,7 +13,7 @@
       </ion-header>
       <div id="container">
           <ion-button routerLink="./about" size="large" shape="round">About us</ion-button><br>
-          <ion-button size="large" shape="round">Customize</ion-button><br>
+<!--          <ion-button size="large" shape="round">Customize</ion-button><br>-->
           <ion-button id="wipe_alert" size="large" color="danger" shape="round">Clear Data</ion-button><br>
           <ion-alert
               trigger="wipe_alert"
