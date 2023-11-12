@@ -34,7 +34,6 @@ function relieve_user() {
         sounds.value = response['sounds'];
       }
   )
-  done.value = true;
 }
 
 const session_store = new Storage();
