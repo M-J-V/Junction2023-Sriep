@@ -1,4 +1,4 @@
-# Junction2023-Sriep
+# VisioRelief - Junction2023 - Sriep
 
 ## ❔ Problem Description:
 VisioRelief addresses the pervasive issue of chronic headaches and migraines, providing a comprehensive solution to ease the persistent head pain of people. Chronic headaches not only impact physical well-being but also contribute to emotional and mental distress, affecting the overall quality of life for those who suffer from them.
